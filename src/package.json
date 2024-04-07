@@ -1,0 +1,24 @@
+{
+  "name": "player-info-api-server",
+  "dependencies": {
+    "@citizenfx/client": "^2.0.7617-1",
+    "@citizenfx/server": "^2.0.7617-1",
+    "cloudflared": "^0.5.1",
+    "express": "^4.19.2",
+    "express-jwt": "^8.4.1",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.2",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.20.2",
+    "rimraf": "^5.0.5"
+  },
+  "scripts": {
+    "build": "npm run clearbuild && node build-bundle.js",
+    "clearbuild": "rimraf ../dist",
+    "typecheck": "tsc --noEmit -p client/tsconfig.json && tsc --noEmit -p server/tsconfig.json",
+    "watch": "npm run clearbuild && cross-env IS_WATCH_MODE=1 node build-bundle.js"
+  }
+}
