@@ -4,8 +4,14 @@ console.log('Initializing fivem-plugin-restarter');
 
 
 const monitoredResources = [
-  "fivem-rest-api",
-  "fivem-npc-ambulance",
+  {
+    name: "fivem-rest-api",
+    subPath: "dist"
+  },
+  {
+    name: "fivem-npc-ambulance",
+    subPath: "dist"
+  }
 ];
 
 onNet("onServerResourceStart", async (resourceName: string) => {  
@@ -18,7 +24,7 @@ onNet("onServerResourceStart", async (resourceName: string) => {
 
     console.log(`Starting resource watchers for ${monitoredResources.join(", ")}`);
     for (const resource of monitoredResources) {
-      new ResourceWatcher(resource);
+      new ResourceWatcher(resource.name, resource.subPath);
     }
 
     console.log("Resource watchers started.");

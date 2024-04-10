@@ -3,12 +3,12 @@ import * as fs from "fs";
 class ResourceWatcher {
   private debounceTimer: NodeJS.Timeout | null = null;
 
-  constructor(private readonly resourceName: string) {
-    const resourceFolder = GetResourcePath(resourceName);
-    const watcher = fs.watch(resourceFolder, { recursive: true });
+  constructor(private readonly resourceName: string, subPath: string = "") {
+    const watchedFolder = `${GetResourcePath(resourceName)}/${subPath}`;
+    const watcher = fs.watch(watchedFolder, { recursive: true });
 
-    watcher.on("change", this.restartResource.bind(this));
-    console.log(`Watching ${resourceFolder} for changes.`);    
+    watcher.on("change", this.restartResource.bind(this))
+    console.log(`Watching ${watchedFolder} for changes.`);    
   }
 
   async restartResource() {
