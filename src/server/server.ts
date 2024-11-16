@@ -2,16 +2,15 @@ import { ResourceWatcher } from "./resource-watcher";
 
 console.log('Initializing fivem-plugin-restarter');
 
-
 const monitoredResources = [
   {
     name: "fivem-rest-api",
-    subPath: "dist"
+    subPath: "dist",
   },
-  {
-    name: "fivem-npc-ambulance",
-    subPath: "dist"
-  }
+  // {
+  //   name: "fivem-npc-ambulance",
+  //   subPath: "dist"
+  // }
 ];
 
 onNet("onServerResourceStart", async (resourceName: string) => {  
