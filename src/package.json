@@ -6,7 +6,7 @@
     "node-watch": "^0.7.4"
   },
   "devDependencies": {
-    "@types/node": "^22.12.0",
+    "@types/node": "^22.13.0",
     "cross-env": "^7.0.3",
     "esbuild": "^0.24.2",
     "rimraf": "^6.0.1"
