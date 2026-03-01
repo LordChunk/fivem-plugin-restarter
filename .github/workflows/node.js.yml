@@ -40,7 +40,7 @@ jobs:
     #     find server_external -type f -name "*.lua" -exec sh -c 'mkdir -p ../dist/$(dirname "{}") && cp "{}" "../dist/{}"' \;
         
     - name: Upload build artifact
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: player-info-api
         path: dist
